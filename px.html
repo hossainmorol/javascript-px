@@ -6,36 +6,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body>
+    <header class="my-16">
+        <h1 class="text-5xl text-center   ">welcome to my <span class="text-green-500">Baap-Er-Bank</span>!!!</h1>
+    </header>
+    <main class="bg-lime-100 w-3/4 mx-auto my-3">
+        <section class=" 4 p-14">
+            <h3 class="my-8 uppercase">please Login</h3>
+            <form class="mx-auto" action="">
+                <input id="user-email" class="block w-3/4 p-1 border-2 border-rose-400 mb-3 rounded" type="email"
+                    placeholder="Enter your email">
+                <input id="user-pawssord" class="block w-3/4 p-1 border-2 border-rose-400 mb-3 rounded" type="password"
+                    placeholder="Enter you pawssord">
+                <button id="submit-btn" class="bg-orange-300 text-white p-2 rounded">submit</button>
+            </form>
+        </section>
+    </main>
     <script>
-        // problem 3 
-        // function picnicBudget(num) {
-        //     if (num <= 100) {
-        //         console.log("taka deta hoba 5000");
-        //     } else if (num <= 200) {
-        //         console.log("taka deta hoba 4000")
-        //     } else if (num || null) {
-        //         console.log("taka deta hoba 3000")
-        //     } else {
-        //         console.log("not join to picni")
-        //     }
-        // }
-        // const total = picnicBudget(1012)
-        // console.log(total);
+        document.getElementById('submit-btn').addEventListener('click', function () {
+            const emilFlide = document.getElementById('user-email');
+            const userEmail = emilFlide.value;
 
+            const pawssordFilde = document.getElementById('user-pawssord');
+            const userPawssord = pawssordFilde.value;
 
-        // problem 4
-        // function oddFriend(friendArray) {
-        //     for (let i = 0; i < friendArray.length; i++) {
-        //         if (friendArray[i].length % 2 == 1) {
-        //             return friendArray[i];
-        //         }
-        //     }
-        // }
-        // const myFriend = oddFriend(["razu", "nahid", "hamim"])
-        // console.log(myFriend);
+            if (userEmail == 'santa@ gmail.com' && userPawssord == '12345') {
+                window.location.href = 'indix.html'
+            } else {
+                alert('NO valid user')
+            }
+
+        })
     </script>
 </body>
 
