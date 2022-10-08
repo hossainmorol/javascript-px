@@ -1,87 +1,41 @@
-// function getInputValue(inputId) {
-//   const depositInput = document.getElementById(inputId);
-//   const depositValue = depositInput.value;
-//   const totalDeposite = parseFloat(depositValue);
-//   depositInput.value = "";
-//   // console.log(totalDeposite);
-//   return totalDeposite;
-// }
-
-// function updateTotalFiekd(totalFliedId, totalDeposite) {
-//   const depositTotal = document.getElementById(totalFliedId);
-//   const userDeposit = depositTotal.innerText;
-//   const proviousDeposit = parseFloat(userDeposit);
-//   const totalAmount = proviousDeposit + totalDeposite;
-//   depositTotal.innerText = totalAmount;
-// }
-
-// function updateBlance(totalDeposite, isAdd) {
-//   const totalBlance = document.getElementById("balance-input");
-//   const userBlance = totalBlance.innerText;
-//   const newBlance = parseFloat(userBlance);
-//   // const totalAmountBlance = newBlance + newDeposit;
-//   if (isAdd == true) {
-//     totalBlance.innerText = newBlance + totalDeposite;
-//   } else {
-//     totalBlance.innerText = newBlance - totalDeposite;
-//   }
-// }
-
-// document
-//   .getElementById("deposit-button")
-//   .addEventListener("click", function () {
-//     const totalDeposite = getInputValue("deposit-input");
-//     updateTotalFiekd("deposit-total", totalDeposite);
-//     updateBlance(totalDeposite, true);
-//   });
-// document
-//   .getElementById("withdraw-button")
-//   .addEventListener("click", function () {
-//     const whitdrawAmount = getInputValue("withdraw-input");
-//     updateTotalFiekd("whitdraw-total", whitdrawAmount);
-//     updateBlance(whitdrawAmount, false);
-//   });
-
-function getInputValue(inputId) {
-  const inputFlied = document.getElementById(inputId);
-  const inputValue = inputFlied.value;
-  const pastflotValue = parseFloat(inputValue);
-  inputFlied.value = "";
-  return pastflotValue;
+function getInput(inputId) {
+  const input = document.getElementById(inputId);
+  const inputVlaue = input.value;
+  const totalInputVlaue = parseFloat(inputVlaue);
+  input.value = "";
+  return totalInputVlaue;
 }
 
-function updateTotalFiekd(totalInputFlied, pastflotValue) {
-  const totalText = document.getElementById(totalInputFlied);
-  const totalTextValu = totalText.innerText;
-  const proviouValue = parseFloat(totalTextValu);
-  const totalAmount = proviouValue + pastflotValue;
-  totalText.innerText = totalAmount;
+function updatInputFlied(inputFlied, totalInputVlaue) {
+  const inputText = document.getElementById(inputFlied);
+  const inputTextVlaue = inputText.innerText;
+  const inputTotal = parseFloat(inputTextVlaue);
+  const totalAmount = inputTotal + totalInputVlaue;
+  inputText.innerText = totalAmount;
 }
 
-function updateBlance(pastflotValue, isAdd) {
+function updateBlance(totalInputVlaue, isAdd) {
   const blance = document.getElementById("balance-input");
-  const blanceText = blance.innerText;
-  const totalBlance = parseFloat(blanceText);
-
+  const blanceVlaue = blance.innerText;
+  const blanceTotal = parseFloat(blanceVlaue);
   if (isAdd == true) {
-    blance.innerText = totalBlance + pastflotValue;
+    blance.innerText = blanceTotal + totalInputVlaue;
   } else {
-    blance.innerText = totalBlance - pastflotValue;
+    blance.innerText = blanceTotal - totalInputVlaue;
   }
 }
 
 document
   .getElementById("deposit-button")
   .addEventListener("click", function () {
-    const pastflotValue = getInputValue("deposit-input");
-    updateTotalFiekd("deposit-total", pastflotValue);
-    updateBlance(pastflotValue, true);
+    const totalInputVlaue = getInput("deposit-input");
+    updatInputFlied("deposit-total", totalInputVlaue);
+    updateBlance(totalInputVlaue, true);
   });
-
 document
   .getElementById("withdraw-button")
   .addEventListener("click", function () {
-    const whitdrawValue = getInputValue("withdraw-input");
-    updateTotalFiekd("whitdraw-total", whitdrawValue);
-    updateBlance(whitdrawValue, false);
+    const withdrawValue = getInput("withdraw-input");
+    updatInputFlied("whitdraw-total", withdrawValue);
+    updateBlance(withdrawValue, false);
   });
